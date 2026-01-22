@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Structure Report</title>
+  <link rel="stylesheet" href="report.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1 id="report-title">Site Structure Report</h1>
+      <div class="header-actions">
+        <button id="export-json" class="btn">Export JSON</button>
+        <button id="export-html" class="btn">Export HTML</button>
+        <button id="reset-view" class="btn">Reset View</button>
+      </div>
+    </div>
+    <div class="report-meta">
+      <span id="meta-total"></span>
+      <span id="meta-captured"></span>
+      <span id="meta-time"></span>
+    </div>
+  </header>
+
+  <main>
+    <div id="visualization"></div>
+  </main>
+
+  <div id="image-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <img id="modal-image" src="" alt="Screenshot">
+      <div class="modal-footer">
+        <a id="modal-link" href="#" target="_blank">Open page in new tab</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="loading" class="loading">
+    <p>Loading report data...</p>
+  </div>
+
+  <div id="no-data" class="no-data" style="display: none;">
+    <p>No report data found. Please run an analysis first.</p>
+  </div>
+
+  <!-- V2: Loading overlay for dynamic expansion -->
+  <div id="expand-loading" class="expand-loading" style="display: none;">
+    <div class="expand-loading-content">
+      <div class="spinner"></div>
+      <p id="expand-loading-text">Capturing screenshots...</p>
+      <div class="expand-progress">
+        <div class="expand-progress-fill" id="expand-progress-fill"></div>
+      </div>
+      <p id="expand-progress-text">0 / 0</p>
+    </div>
+  </div>
+
+  <script src="../lib/d3.min.js"></script>
+  <script src="report.js"></script>
+</body>
+</html>
