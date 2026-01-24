@@ -1,106 +1,53 @@
+<div align="center">
+
 # Sitemap Visualizer
 
-A Chrome extension that analyzes websites by fetching their sitemap, capturing screenshots of key pages, and generating an interactive tree visualization.
+[![Chrome](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/mkhrdev/chrome-sitemap-visualizer/releases)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![D3.js](https://img.shields.io/badge/D3.js-v7-F9A03C?logo=d3.js&logoColor=white)](https://d3js.org/)
+
+A Chrome extension that analyzes website structure with automatic sitemap discovery and interactive tree visualization.
+
+<img src="store-assets/p2.png" alt="Sitemap Visualizer" width="700">
+
+</div>
 
 ## Features
 
-- **Automatic Sitemap Discovery**: Fetches and parses `sitemap.xml` from any website
-- **Smart URL Selection**: Uses breadth-first traversal with branch coverage to capture representative pages
-- **Silent Screenshot Capture**: Uses Chrome Debugger API for background screenshot capture without disrupting user workflow
-- **Interactive Tree Visualization**: D3.js-powered vertical tree layout with:
-  - Collapsible nodes (shows "... +N more" for branches with many children)
-  - Click-to-expand functionality with on-demand screenshot capture
-  - Smooth animations for tree updates
-  - Click nodes to view full-size screenshots
-- **Current Page Analysis**: One-click analysis starting from the current browser tab
+- **Automatic Sitemap Discovery** - Fetches and parses `sitemap.xml` automatically
+- **Smart Page Selection** - Breadth-first traversal to capture representative pages
+- **Silent Screenshot Capture** - Background capture without interrupting your browsing
+- **Interactive Tree** - D3.js-powered visualization with collapsible nodes and zoom/pan
 
 ## Installation
 
-1. Clone or download this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" (toggle in top-right corner)
-4. Click "Load unpacked" and select the `sitemap-visualizer` folder
-5. The extension icon will appear in your toolbar
+### From Chrome Web Store
+*(Coming soon)*
+
+### Manual Installation
+1. Download or clone this repository
+2. Open `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select this folder
 
 ## Usage
 
-### Analyze Current Page
-1. Navigate to any website you want to analyze
+1. Navigate to any website
 2. Click the extension icon
-3. Click "Analyze Current Page" button
-4. Wait for the analysis to complete
-5. View the interactive sitemap visualization
-
-### Analyze Custom URL
-1. Click the extension icon
-2. Enter a website URL in the input field
-3. Click "Analyze" button
-4. Wait for the analysis to complete
+3. Click "Analyze Current Page"
+4. Explore the interactive visualization
 
 ### Settings
-- **Max pages**: Maximum number of pages to capture (10-50)
-- **Load timeout**: How long to wait for each page to load (3-15 seconds)
-- **Capture delay**: Delay before capturing screenshot after page load (0.5-3 seconds)
+- **Max pages**: 10-50 pages to capture
+- **Load timeout**: 3-15 seconds per page
+- **Capture delay**: 0.5-3 seconds before screenshot
 
-### Interacting with the Visualization
-- **Click a node with screenshot**: View full-size screenshot in modal
-- **Click a placeholder node**: Capture screenshot for that specific page
-- **Click "... +N more"**: Expand hidden children and capture their screenshots
-- **Scroll/Pan**: Navigate around the tree
-- **Zoom**: Use mouse wheel to zoom in/out
-
-## Technical Details
-
-### Permissions Required
-- `tabs`: Access current tab information
-- `activeTab`: Interact with the active tab
-- `scripting`: Execute scripts for page analysis
-- `storage`: Store analysis results
-- `unlimitedStorage`: Handle large screenshot data
-- `debugger`: Silent screenshot capture via Chrome DevTools Protocol
-
-### Architecture
-```
-sitemap-visualizer/
-├── manifest.json           # Extension configuration
-├── background/
-│   └── service-worker.js   # Core logic: sitemap fetching, screenshot capture
-├── popup/
-│   ├── popup.html          # Extension popup UI
-│   ├── popup.css           # Popup styles
-│   └── popup.js            # Popup interaction logic
-├── report/
-│   ├── report.html         # Visualization page
-│   ├── report.css          # Visualization styles
-│   └── report.js           # D3.js tree rendering and interaction
-└── icons/                  # Extension icons
-```
-
-### Screenshot Capture Method
-The extension uses Chrome's Debugger API (`chrome.debugger`) to capture screenshots silently in a background window. This approach:
-- Doesn't interrupt user's current browsing
-- Captures pages at consistent viewport size (1280x800)
-- Falls back to `chrome.tabs.captureVisibleTab` if debugger fails
-
-## Testing
-
-For testing sitemap functionality, you can use these websites that are designed for web scraping practice:
-- [Books to Scrape](https://books.toscrape.com) - Fake bookstore with multiple categories
-- [Quotes to Scrape](https://quotes.toscrape.com) - Simple site with pagination
-
-## Troubleshooting
-
-### "No sitemap found"
-The website may not have a sitemap.xml file. The extension will attempt to discover links from the homepage instead.
-
-### Screenshots not loading
-- Check if the website blocks iframe embedding or has strict CSP
-- Try increasing the load timeout in settings
-
-### Extension not working
-1. Check `chrome://extensions/` for any error messages
-2. Click "Reload" on the extension
-3. Check the service worker console for errors (click "Inspect views: service worker")
+### Tree Interaction
+- Click node → View full screenshot
+- Click placeholder → Capture on-demand
+- Click "+N more" → Expand hidden children
+- Mouse wheel → Zoom in/out
 
 ## Changelog
 
