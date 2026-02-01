@@ -2,7 +2,7 @@
 
 # Sitemap Visualizer
 
-[![Chrome](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)](https://chrome.google.com/webstore)
+[![Chrome](https://img.shields.io/badge/Chrome-Extension-4285F4?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/ppkjofgmbgdpklbpmiligcabmmopdnml)
 [![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/mkhrdev/chrome-sitemap-visualizer/releases)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![D3.js](https://img.shields.io/badge/D3.js-v7-F9A03C?logo=d3.js&logoColor=white)](https://d3js.org/)
@@ -23,7 +23,7 @@ A Chrome extension that analyzes website structure with automatic sitemap discov
 ## Installation
 
 ### From Chrome Web Store
-*(Coming soon)*
+[**Install from Chrome Web Store**](https://chromewebstore.google.com/detail/ppkjofgmbgdpklbpmiligcabmmopdnml)
 
 ### Manual Installation
 1. Download or clone this repository
